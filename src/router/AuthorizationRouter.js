@@ -7,7 +7,7 @@ export default class AuthenticationRouter {
         const router = express.Router();
         router.post('/register', UserController.create);
         router.post('/login', AuthenticationController.login);
-        router.get('/logout', AuthenticationController.logout);
+        router.post('/logout', AuthenticationController.logout);
         return router;
     }
 }

@@ -1,6 +1,5 @@
 import express from "express";
 import bodyParser from "body-parser";
-import morgan from "morgan";
 import apiRouter from "./router/ApiRouter";
 import server from "./db/Connection";
 
@@ -8,11 +7,15 @@ export function startServer() {
   const app = express();
   const APP_PORT = process.env.PORT || 9000;
 
+  //middlware lib to log incoming requests
+  let logger = function(req, res, next){
+    console.log(`INCOMING REQ: ${req.method} ${req.path}`);
+    next();
+  }
   //bind request body to req.body
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
-  //middlware lib to log incoming requests
-  app.use(morgan("tiny"));
+  app.use(logger)
   app.use("/api", apiRouter.router());
 
   server();

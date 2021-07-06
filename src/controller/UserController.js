@@ -47,7 +47,7 @@ export default class UserController {
   static async view(req, res) {
     try{
       //get current loggedin user information
-      const user = await User.findOne({ _id: req.user.id });
+      let { user } = req;
       if(!user){
         return res.status(404).send({
           error_code: "user_not_found",

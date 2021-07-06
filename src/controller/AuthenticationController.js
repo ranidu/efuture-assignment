@@ -63,6 +63,12 @@ export default class AuthController {
   }
 
   static async logout(req, res) {
-    //since we are using jwt token, should be removed from client browser when logout triggered
+    if(req.user){
+      delete req.user;
+    }
+
+    res.send({
+      message: "User had been successfully logged out."
+    });
   }
 }
