@@ -1,0 +1,37 @@
+{
+  "name": "authentication-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon --exec babel-node ./src/server.js",
+    "start": "babel-node ./src/server.js",
+    "test": "NODE_ENV=test jest --verbose"
+  },
+  "author": "Ranidu Nadeesha",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "jest": "^26.6.0",
+    "nodemon": "^2.0.6",
+    "supertest": "^5.0.0"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "config": "^3.3.2",
+    "express": "^4.17.1",
+    "faker": "^5.1.0",
+    "joi": "^17.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.10.9",
+    "morgan": "^1.10.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
